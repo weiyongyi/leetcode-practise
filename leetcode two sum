@@ -1,0 +1,37 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+int *sum(int numbers[], int n, int target)
+{
+	int i;
+	int j;
+	int *ret = (int*)malloc(sizeof(int)*2);
+	for(i=0;i<n;i++)
+	{
+		for(j=i+1;j<n;j++)
+
+		{
+			if(numbers[i]+numbers[j]==target)
+			{
+				ret[0]=i;
+				ret[1]=j;
+				return ret;
+			}
+		}
+	}
+	return NULL;
+}
+
+int main()
+{
+
+	int array[4]={1,2,3,4};
+	int *result;
+	result =sum(array,4,7);
+	int i;
+	for(i=0;i<2;i++)
+		printf("%d",result[i]);
+
+
+	return 0;
+}
